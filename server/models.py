@@ -23,8 +23,12 @@ class Game(db.Model, SerializerMixin):
 
     reviews = db.relationship('Review', backref='game')
 
+    # def __repr__(self):
+    #     return f'<Game {self.title} for {self.platform}>'
+    
     def __repr__(self):
-        return f'<Game {self.title} for {self.platform}>'
+        return '<Game {} for {}>'.format(self.title, self.platform)
+
 
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
